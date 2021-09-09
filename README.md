@@ -1,5 +1,7 @@
 # tvmaze
 
+Simple Vue (Vuex + Typescript) application to call tvmaze movies API
+
 ## Project setup
 ```
 npm install
