@@ -8,7 +8,8 @@ import { State } from './state';
 
 const debug = process.env.NODE_ENV !== 'production';
 
-export const key: InjectionKey<Store<State>> = Symbol('injection key');
+// eslint-disable-next-line symbol-description
+export const key: InjectionKey<Store<State>> = Symbol();
 
 export const store = createStore<State>({
   state: {
@@ -26,5 +27,6 @@ export const store = createStore<State>({
 });
 
 export function useStore(): Store<State> {
+  console.log('Inside use store', key);
   return baseUseStore(key);
 }

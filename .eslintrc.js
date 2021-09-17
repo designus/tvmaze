@@ -17,9 +17,11 @@ module.exports = {
     'import/prefer-default-export': 0,
     'max-len': ['error', { code: 140 }],
     'no-shadow': 0,
+    'comma-dangle': 0,
     '@typescript-eslint/no-shadow': 1,
     'no-use-before-define': 0,
     '@typescript-eslint/no-use-before-define': ['error', { ignoreTypeReferences: true }],
+    '@typescript-eslint/no-explicit-any': 0
   },
   overrides: [
     {
