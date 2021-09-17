@@ -1,3 +1,4 @@
+import Vue from 'vue';
 import { MutationTree } from 'vuex';
 import { Movie } from '@/api/types';
 import { State } from './state';

@@ -16,12 +16,20 @@
           Score
         </div>
       </div>
-      <div class="search-item" v-for="movie in searchResults" :key="movie.show.id">
+      <div
+        class="search-item"
+        @click="handleClick(movie)"
+        v-for="movie in searchResults"
+        :key="movie.show.id"
+      >
         <div class="name">
           {{ movie.show.name }}
         </div>
         <div class="score">
           {{ movie.score }}
+        </div>
+        <div v-if="!!selectedMovies[movie.show.id]" class="selected-icon">
+          <i class="fas fa-check"></i>
         </div>
       </div>
     </div>
@@ -35,11 +43,12 @@
 import {
   defineComponent,
   ref,
-  computed,
-  WritableComputedRef
+  computed
 } from 'vue';
+import { Movie } from '@/api/types';
 import { useStore } from '../store';
 import { ActionTypes } from '../store/action-types';
+import { MutationTypes } from '../store/mutation-types';
 
 export default defineComponent({
   name: 'Search',
@@ -52,12 +61,20 @@ export default defineComponent({
       store.dispatch(ActionTypes.FETCH_MOVIES, e.target.value);
     };
 
+    const handleClick = (movie: Movie) => {
+      store.commit(MutationTypes.TOGGLE_MOVIE, movie);
+    };
+
     const searchResults = computed(() => store.state.data.searchResults);
+
+    const selectedMovies = computed(() => store.state.data.selectedMovies);
 
     return {
       query,
       updateQuery,
-      searchResults
+      searchResults,
+      handleClick,
+      selectedMovies
     };
   },
 });
@@ -79,6 +96,10 @@ export default defineComponent({
   }
 }
 
+.selected-icon {
+  margin-left: 10px;
+}
+
 .search-input,
 .search-results {
   border: 1px solid #ccc;
@@ -88,11 +109,16 @@ export default defineComponent({
   width: 100%;
 }
 
+.score {
+  margin-left: auto;
+}
+
 .search-item {
   display: flex;
   justify-content: space-between;
   padding: 5px 10px;
   text-align: left;
+  cursor: pointer;
 
   &.header {
     font-weight: bold;
