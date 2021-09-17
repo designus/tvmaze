@@ -2,36 +2,36 @@
 
 export interface Movie {
   score: number;
-  show:  Show;
+  show: Show;
 }
 
 export interface Show {
-  id:             number;
-  url:            string;
-  name:           string;
-  type:           'Scripted';
-  language:       'Dutch' | 'English' | 'Mongolian';
-  genres:         string[];
-  status:         'Ended' | 'In Development' | 'Running';
-  runtime:        number;
+  id: number;
+  url: string;
+  name: string;
+  type: 'Scripted';
+  language: 'Dutch' | 'English' | 'Mongolian';
+  genres: string[];
+  status: 'Ended' | 'In Development' | 'Running';
+  runtime: number;
   averageRuntime: number | null;
-  premiered:      null | string;
-  officialSite:   null | string;
-  schedule:       Schedule;
-  rating:         Rating;
-  weight:         number;
-  network:        Network | null;
-  webChannel:     Network | null;
-  dvdCountry:     null;
-  externals:      Externals;
-  image:          Image | null;
-  summary:        null | string;
-  updated:        number;
-  _links:         Links;
+  premiered: null | string;
+  officialSite: null | string;
+  schedule: Schedule;
+  rating: Rating;
+  weight: number;
+  network: Network | null;
+  webChannel: Network | null;
+  dvdCountry: null;
+  externals: Externals;
+  image: Image | null;
+  summary: null | string;
+  updated: number;
+  _links: Links;
 }
 
 export interface Links {
-  self:             Previousepisode;
+  self: Previousepisode;
   previousepisode?: Previousepisode;
 }
 
@@ -40,25 +40,25 @@ export interface Previousepisode {
 }
 
 export interface Externals {
-  tvrage:  number | null;
+  tvrage: number | null;
   thetvdb: number | null;
-  imdb:    null | string;
+  imdb: null | string;
 }
 
 export interface Image {
-  medium:   string;
+  medium: string;
   original: string;
 }
 
 export interface Network {
-  id:      number;
-  name:    string;
+  id: number;
+  name: string;
   country: Country;
 }
 
 export interface Country {
-  name:     string;
-  code:     string;
+  name: string;
+  code: string;
   timezone: string;
 }
 

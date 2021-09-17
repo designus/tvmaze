@@ -1,6 +1,5 @@
 import { MutationTree } from 'vuex';
 import { Movie } from '@/api/types';
-import { createMapWith } from '@/utils/methods';
 import { State } from './state';
 import { MutationTypes } from './mutation-types';
 
@@ -8,7 +7,7 @@ export type Mutations<S = State> = {
   [MutationTypes.SET_ERROR](state: S, error: string): void;
   [MutationTypes.SET_IS_LOADING](state: S): void;
   [MutationTypes.SET_SEARCH_RESULTS](state: S, movies: Movie[]): void;
-  [MutationTypes.TOGGLE_MOVIE](state: S, Movie: Movie): void;
+  [MutationTypes.TOGGLE_MOVIE](state: S, movie: Movie): void;
 }
 
 export const mutations: MutationTree<State> & Mutations = {
@@ -18,7 +17,7 @@ export const mutations: MutationTree<State> & Mutations = {
   },
   [MutationTypes.SET_IS_LOADING]: (state) => {
     state.isLoading = true;
-    state.error = null
+    state.error = null;
   },
   [MutationTypes.SET_SEARCH_RESULTS]: (state, movies) => {
     state.data.searchResults = movies;
@@ -30,6 +29,5 @@ export const mutations: MutationTree<State> & Mutations = {
     } else {
       state.data.selectedMovies[movie.show.id] = movie;
     }
-  }
-  
-}
+  },
+};

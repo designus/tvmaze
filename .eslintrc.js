@@ -14,6 +14,12 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
+    'import/prefer-default-export': 0,
+    'max-len': ['error', { code: 140 }],
+    'no-shadow': 0,
+    '@typescript-eslint/no-shadow': 1,
+    'no-use-before-define': 0,
+    '@typescript-eslint/no-use-before-define': ['error', { ignoreTypeReferences: true }],
   },
   overrides: [
     {

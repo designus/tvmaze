@@ -5,6 +5,6 @@ export interface State {
   error: string | null;
   data: {
     searchResults: Movie[];
-    selectedMovies: Record<string, Movie>; 
+    selectedMovies: Record<string, Movie>;
   }
 }
