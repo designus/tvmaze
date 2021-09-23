@@ -51,7 +51,7 @@ import { ActionTypes } from '../store/action-types';
 import { MutationTypes } from '../store/mutation-types';
 
 export default defineComponent({
-  name: 'Search',
+  name: 'SearchInput',
   setup() {
     const query = ref('');
     const store = useStore();
@@ -83,8 +83,7 @@ export default defineComponent({
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
 .search-component {
-  padding: 20px 0;
-  width: 300px;
+  width: 400px;
 }
 
 .search-input {

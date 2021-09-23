@@ -1,18 +1,23 @@
 <template>
-  <div class="tvMaze">
+  <div class="tv-maze">
     <h3>Tv maze public API</h3>
-    <Search />
+    <div class="content">
+      <SearchInput />
+      <SelectedItems />
+    </div>
   </div>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import Search from './Search.vue';
+import SearchInput from './SearchInput.vue';
+import SelectedItems from './SelectedItems.vue';
 
 export default defineComponent({
   name: '',
   components: {
-    Search
+    SearchInput,
+    SelectedItems
   },
   props: {
     msg: String,
@@ -22,6 +27,17 @@ export default defineComponent({
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+.tv-maze {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
 h3 {
   margin: 40px 0 0;
 }
