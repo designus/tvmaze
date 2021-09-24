@@ -22,7 +22,7 @@
               {{ selectedMovie.show.name }}
             </td>
             <td>
-              {{ selectedMovie.show.genres.join(',')}}
+              {{ selectedMovie.show.genres.join(', ')}}
             </td>
             <td>
               {{ selectedMovie.show.language }}
